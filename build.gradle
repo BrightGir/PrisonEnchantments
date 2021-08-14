@@ -1,0 +1,38 @@
+
+
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '5.0.0'
+}
+
+group = 'me'
+version = '1.0-SNAPSHOT'
+
+
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'spigotmc-repo'
+        url = 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/'
+    }
+    maven {
+        name = 'sonatype'
+        url = 'https://oss.sonatype.org/content/groups/public/'
+    }
+}
+
+dependencies {
+    compileOnly 'org.spigotmc:spigot-api:1.12.2-R0.1-SNAPSHOT'
+    compileOnly files('C:\\Users\\brigh\\OneDrive\\Рабочий стол\\base\\SERVER\\BUNGEESERVER\\Prison_5\\plugins\\ViPrison-1.0-SNAPSHOT.jar')
+}
+
+apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
+compileJava {options.encoding = "UTF-8"}
+
+shadowJar {
+    destinationDirectory = file('C:\\Users\\brigh\\OneDrive\\Рабочий стол\\base\\SERVER\\BUNGEESERVER\\Prison_5\\plugins')
+    configurations = [project.configurations.shadow]
+    archiveClassifier.set('')
+}
