@@ -36,7 +36,7 @@ public class Tools implements Listener {
         Material block = event.getBlock().getType();
 
         ItemStack item = event.getPlayer().getInventory().getItemInMainHand();
-        ViPlayer player = new ViPlayer(event.getPlayer());
+        ViPlayer player = ViPlayer.getViPlayer(event.getPlayer());
         if(item == null || item.getType() == Material.AIR) {
             return;
         }

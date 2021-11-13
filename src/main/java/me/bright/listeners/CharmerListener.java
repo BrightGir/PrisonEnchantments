@@ -118,11 +118,11 @@ public class CharmerListener implements Listener {
             try {
                 ItemStack book = current;
                 int chance = PEManager.getChance(book.getItemMeta().getLore());
-                if(chance >= 70) {
-                    M.msg(player,"&cМаксимальное поднятие шанса пыльцой - 70%!");
+                if(chance >= 55) {
+                    M.msg(player,"&cМаксимальное поднятие шанса пыльцой - 55%!");
                     return;
                 }
-                int finalChance = Math.min(chance + 10, 70);
+                int finalChance = Math.min(chance + 10, 55);
                 PEManager.setChance(book, finalChance, chance);
                 ItemStack cursorFinal = cursor.clone();
                 cursorFinal.setAmount(cursor.getAmount() - 1);

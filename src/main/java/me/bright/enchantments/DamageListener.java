@@ -161,7 +161,7 @@ public class DamageList implements Listener {
                     }
                 }
 
-                if (p.getHealth() <= 7.0D && enchantments.contains(PEnchantment.ANIMAL) && CoolDown.isOutDated(p,"animal")) { // ANIMAL
+                if (p.getHealth() <= 7.0D && enchantments.contains(PEnchantment.ANIMAL) && CoolDown.isOutDated(p,"animal",false)) { // ANIMAL
                     int lvl = currentEnchantments.get(PEnchantment.ANIMAL);
                     p.addPotionEffect(new PotionEffect(PotionEffectType.HEAL,20,lvl-1,false,false));
                     p.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE,120,lvl-1,false,false));
@@ -194,7 +194,7 @@ public class DamageList implements Listener {
 
                     Player damager = (Player) damagerEntity;
 
-                    if (enchantments.contains( PEnchantment.DOMINATE)) { //DOMINATE
+                    if (enchantments.contains(PEnchantment.DOMINATE)) { //DOMINATE
                         int lvl = currentEnchantments.get(PEnchantment.DOMINATE);
                         if (Chance.isLuck(10)) {
                             damager.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 30 * lvl, (lvl > 1 ? 1 : 0), false, false));
@@ -216,6 +216,8 @@ public class DamageList implements Listener {
         }
     }
     // p - жертва, damager - дамагер
+
+
 
 
     public double getDamagePercent(double damage, double percent) {
